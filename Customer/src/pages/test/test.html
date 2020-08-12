@@ -1,0 +1,48 @@
+<!--
+  Generated template for the TestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content padding class="background" style="background-image:url('assets/img/logo.png');background-position: 70%;background-position-y: -10%;background-repeat: no-repeat">
+
+  <br><br><br><br><br><br><br><br><br>
+ 
+    <ion-list inset>
+        
+          <ion-item>
+            <ion-label floating >Em@il</ion-label>
+            <ion-input maxlength="28" type="email"[(ngModel)]="email" required></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label floating >Password</ion-label>
+            <ion-input  maxlength="15" type="password"[(ngModel)]="password" required></ion-input>
+          </ion-item>
+        
+        </ion-list>
+
+  <button ion-button round (click)="login()" style="margin-left: 35%" >Login</button>
+  <br>
+  <button ion-button round (click)="goToregister()"style="margin-left: 31%" >Register</button>
+<br><br><br><br><br><br> <br> 
+<!--<ion-item left bottom>
+<button  style="padding: 10px 1px" ion-button clear (click)="loginFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+<button style="padding: 10px 1px" ion-button clear  (click)="loginGoogle()"><ion-icon  style="color:#f58533"name="logo-googleplus"></ion-icon></button>
+<button style="padding: 10px 1px" ion-button clear  (click)="loginTwitter()"><ion-icon  style="color:#6cba60"name="logo-twitter"></ion-icon></button>
+</ion-item> -->
+
+
+ <ion-fab left bottom>
+    <button ion-fab color="blue"><ion-icon name="arrow-dropright"></ion-icon></button>
+    <ion-fab-list side="right">
+      <button ion-fab (click)="loginFacebook1()"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab (click)="loginGoogle1()"><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-fab ><ion-icon name="logo-twitter"></ion-icon></button>
+      
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

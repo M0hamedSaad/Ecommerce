@@ -1,0 +1,27 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>This is location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    
+         <agm-map style="height: 400px;" 
+        [latitude]="lat" 
+        [longitude]="long"
+        [zoom]="15"
+           >
+           <agm-marker
+           [latitude]="lat" 
+           [longitude]="long"
+           >
+             
+           </agm-marker>
+         </agm-map>
+          <!-- <button ion-button outline [disabled]="!locationset" style="margin-left: 25%;">Set</button>
+           <button ion-button outline>Close</button>-->
+           
+    </ion-content>

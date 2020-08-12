@@ -1,0 +1,114 @@
+<!--
+  Generated template for the AddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<!--<img src={{currentPhoto}}/>
+<button ion-button outline (click)="takePhoto()" style="margin-left: 42% ;">
+    <ion-icon name="image" ></ion-icon>
+  </button>   
+
+  <img src={{imgSource}}/>
+  <button ion-button outline (click)="getmyUrl()" style="margin-left: 43% ;">
+      <ion-icon name="download" ></ion-icon>
+    </button> -->
+
+<ion-content padding class="card-background-page">
+
+  <button ion-button full (click)="openMenu()">
+    <ion-icon name="camera"></ion-icon>&nbsp;&nbsp;Take Photo
+  </button>
+
+
+  <ion-card class="block">
+   
+    <img src={{currentPhoto}} />
+
+   <!--<img [src]="captureDataUrl" *ngIf="captureDataUrl"/>  
+   <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload to Firebase!</button>-->
+  </ion-card>
+  <ion-list inset>
+
+
+    <ion-item>
+      <ion-label>Title :</ion-label>
+      <ion-input min="1" maxlenght="28" type="text" [(ngModel)]="title" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description :</ion-label>
+      <ion-input minlength="1" maxlenght="30" type="text" [(ngModel)]="description" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Price :</ion-label>
+      <ion-input  maxlenght="30" type="number" [(ngModel)]="price" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantity :</ion-label>
+      <ion-input   type="number" [(ngModel)]="quantity" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [(ngModel)]="category" required >
+        <ion-option value="Cars">Cars</ion-option>
+        <ion-option value="Phones">Phones</ion-option>
+        <ion-option value="Real-Estate">Real-Estate</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+        <button ion-button clear item-end (click)="startGps()"  >
+        <ion-icon name="locate" item-start></ion-icon>Set Gps</button>
+        
+    </ion-item>
+   
+    <ion-list>
+        <ion-item>
+          Use map  ,
+          <button ion-button clear item-end icon-left (click)="appear()">
+         
+            Click here ..
+          </button>
+        </ion-item>
+      </ion-list>
+
+      
+    
+      <button *ngIf="appearance"  ion-button clear style="margin-left: 90%" (click)="close()"  >
+          <ion-icon name="close" item-start></ion-icon></button>
+          
+        
+
+     <agm-map  *ngIf="appearance"  style="height: 300px;" 
+     [latitude]="lat" 
+     [longitude]="long"
+     [zoom]="15"
+     (mapClick)="click($event)" >
+       
+        <agm-marker
+        *ngIf="locationset"
+        [latitude]="lat" 
+        [longitude]="long" >
+
+        </agm-marker>
+     </agm-map>
+    
+    <ion-note *ngIf="appearance">  {{lat}}   /   {{long}}  </ion-note>  
+
+     <agm-map  *ngIf="appearanceLocation"  style="height: 300px;" 
+     [latitude]="lat" 
+     [longitude]="long"
+     [zoom]="15">
+       
+        <agm-marker
+        [latitude]="lat" 
+        [longitude]="long" >
+
+        </agm-marker>
+     </agm-map>
+     <ion-note *ngIf="appearanceLocation">  {{lat}}   /   {{long}}  </ion-note> 
+  </ion-list>
+
+  <button ion-button outline style="margin-left: 35%" (click)="addproduct(title,description,price,quantity,category,time)">submit</button>
+</ion-content>

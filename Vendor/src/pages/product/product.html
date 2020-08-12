@@ -1,0 +1,70 @@
+<!--
+  Generated template for the ProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MY Products</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="action-sheets-basic-page">
+
+  <ion-card *ngFor="let item of products | async" >
+
+    <!-- <img src="{{productPhoto}}"/>-->
+   <img src="https://firebasestorage.googleapis.com/v0/b/ionic-db-9a4c6.appspot.com/o/images%2F{{item.image}}.jpg?alt=media&amp;token=cc1158e3-a6fc-4abe-945a-7331c01aaa73"/>
+    <ion-card-content >
+      <ion-card-title>
+        <h1 style="font-style: italic;">{{item.title }}</h1> 
+              </ion-card-title>
+        <ion-list>
+            <ion-item-sliding  >
+              <ion-item>
+              <ion-item>
+               <h2>Description:
+                <p>{{item.description }}</p>
+              </h2>
+            </ion-item>
+              <ion-item>
+              <h2>Price:
+                  <p>{{item.price }}</p>
+                </h2>
+              </ion-item>
+            <ion-item>
+                <h2>Quantity:
+                  <p>{{item.quantity }}</p>
+                </h2> 
+              </ion-item>
+            <ion-item>
+                <h2>Category:
+                  <p>{{item.category }}</p>
+                </h2>
+              </ion-item>
+            <ion-item > 
+                <h2>Location:
+                  <p>{{item.lat }} <br> {{item.long }}</p>
+
+                  </h2>  
+                  <button ion-button clear item-start   style="height: 10%" (click)="showMap(item.lat,item.long)" >
+                      <ion-icon name="eye" item-left></ion-icon></button>
+                </ion-item>
+              </ion-item>
+              <ion-item-options side="right">
+                <button ion-button color="danger" (click)="deleteProduct(item.key)">
+                  <ion-icon name="trash"></ion-icon>
+                     Delete    
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+
+</ion-content>
